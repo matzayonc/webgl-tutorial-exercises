@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+    <script src="/js/jQ.js"></script>
+
+    <script defer="defer">
+
+
+        $(document).ready(function () {
+
+            console.log("test")
+
+            $.ajax({
+                url: "/cwiczenia",
+                data: {},
+                type: "GET",
+                success: function (tab) {
+                    console.log(tab)
+
+                    for (let i of tab)
+                        $("#list").append('<li><a href="' + i + '">' + i.split('.')[0] + '</a></li>')
+
+                },
+                error: function (xhr, status, error) {
+
+                },
+            });
+
+        })
+
+    </script>
+    <style>
+        li {
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Index</h1>
+    <ol id="list"></ol>
+</body>
+
+</html>
